@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-config
+  namespace: spring-mysql-app
+data:
+  application.yml: |
+    spring:
+      datasource:
+        url: ${DB_URL:jdbc:mysql://mysql:3306/fisa}
+    server:
+      port: 8081

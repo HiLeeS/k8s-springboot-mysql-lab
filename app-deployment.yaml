@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emp-app
+  namespace: spring-mysql-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: emp-app
+  template:
+    metadata:
+      labels:
+        app: emp-app
+    spec:
+      containers:
+      - name: emp-app
+        image: nyongwan/step04_empapp:latest
+        ports:
+        - containerPort: 8081
+        env:
+        - name: DB_URL
+          value: "jdbc:mysql://mysql-0.mysql:3306/fisa"
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: MYSQL_USER
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: MYSQL_PASSWORD
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: emp-app-service
+  namespace: spring-mysql-app
+spec:
+  type: NodePort
+  ports:
+  - port: 8081
+    targetPort: 8081
+    nodePort: 30081
+  selector:
+    app: emp-app
