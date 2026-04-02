@@ -34,9 +34,9 @@
 
 ## Kubernetes Deployment Highlights
 
-- **High Availability**: `podAntiAffinity` 설정을 통해 `emp-app` 포드가 서로 다른 물리 노드에 분산 배치되도록 구현했습니다.
 - **Persistent Data**: `StatefulSet`과 워커 노드의 `Local Path`를 연결하여 DB 포드가 재기동되어도 데이터가 소실되지 않게 구축했습니다.
 - **Config Management**: `ConfigMap`과 `Secret`을 사용하여 민감한 정보(DB ID/PW)와 환경 설정(Spring Profiles)을 애플리케이션 코드와 분리했습니다.
+- **High Availability**: `podAntiAffinity` 설정을 통해 `emp-app` 포드가 서로 다른 물리 노드에 분산 배치되도록 구현할 예정입니다.
 ---
 
 ## 🚀 How to Run

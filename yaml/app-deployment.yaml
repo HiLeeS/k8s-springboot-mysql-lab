@@ -4,7 +4,7 @@ metadata:
   name: emp-app
   namespace: spring-mysql-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: emp-app
