@@ -20,7 +20,7 @@ spec:
         - containerPort: 8081
         env:
         - name: DB_URL
-          value: "jdbc:mysql://mysql-0.mysql:3306/fisa"
+          value: jdbc:mysql://mysql-0.mysql:3306/fisa
         - name: DB_USERNAME
           valueFrom:
             secretKeyRef:
