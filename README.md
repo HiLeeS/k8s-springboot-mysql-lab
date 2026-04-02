@@ -42,15 +42,22 @@
 ## 🚀 How to Run
 
 ```bash
-# 1. Namespace 및 설정 등록
+# 1. MySQL 노드 레이블링
+kubectl label nodes <node-name> app=mysql-node
+
+# 2. MySQL 데이터 디렉토리 생성 및 권한 설정 (<node-name>은 MySQL이 배포될 노드)
+mkdir -p /home/fisa/mysql
+sudo chmod 777 /home/fisa/mysql
+
+# 3. Namespace 및 설정 등록
 kubectl apply -f namespace.yaml
 kubectl apply -f configmap.yaml
 kubectl apply -f secret.yaml
 
-# 2. DB 및 앱 배포
+# 4. DB 및 앱 배포
 kubectl apply -f mysql-stateful.yaml
 kubectl apply -f deployment-app.yaml
-
+```
 ---
 
 ## 🚨 Troubleshooting
