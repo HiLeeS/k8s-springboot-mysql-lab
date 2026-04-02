@@ -1,4 +1,4 @@
-# Optimized Spring Boot Deployment on Kubernetes
+# 🛡️ Kubernetes 기반 Spring Boot 배포 최적화
 
 이 프로젝트는 Spring Boot 3.5 애플리케이션을 Docker 호환 성과 배포 효율을 극대화하여 최적화하고, Kubernetes 멀티 노드 환경에서 인프라를 구축하는 실습 과정을 담고 있습니다.
 
